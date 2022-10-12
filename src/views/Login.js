@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import { apiUrl } from '../constants/Urls'
 import img1 from '../assets/IOT.png'
 import img2 from '../assets/iot1.png'
 import img3 from '../assets/iot2.png'
@@ -9,7 +11,22 @@ export default function Login() {
     const [modal, setModal] = useState(false)
     // State para mostrar crear cuenta o simplemente hacer login
     const [crear, setCrear] = useState(false)
+    // Para almacenar los usuarios
+    const [usuarios, setUsuarios] = useState()
     
+
+    // Useeffect para obtener a todos los usuarios
+    const getInfo = async() =>{
+        await axios.get(`${apiUrl}/usuarios`).then(function(response){
+            setUsuarios(response.data)
+            console.log(response.data)
+            
+        }) 
+    }
+    useEffect(() => {
+        getInfo()  
+        // eslint-disable-next-line 
+    }, [])
 
   return (
     <div className='w-full min-h-screen bg-gradient-to-tr from-cyan-500 to-lime-200'>
