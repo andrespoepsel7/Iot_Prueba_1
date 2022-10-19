@@ -1,1 +1,1 @@
-export const apiUrl = 'http://localhost:81/iot_api'
+export const apiUrl = 'http://192.168.2.32:81/iot_api'
