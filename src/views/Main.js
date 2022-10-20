@@ -22,7 +22,7 @@ export default function Main() {
     const [cargando, setCargando] = useState(true)
     const [lecturas, setLecturas] = useState()
     const [lecturasAux, setLecturasAux] = useState()
-    const [estadoLed, setEstadoLed] = useState()
+    const [estadoLed, setEstadoLed] = useState("false")
 
 
     // Cambia el estado del Led
